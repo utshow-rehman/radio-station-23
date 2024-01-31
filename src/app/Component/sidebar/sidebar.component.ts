@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
+import { DrawerService } from 'src/app/Services/drawer.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,9 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  isDrawerOpen: boolean = true; // The drawer is open by default
+  @ViewChild('drawer') drawer!: MatDrawer;
+  constructor(private drawerService: DrawerService) { }
 
-  toggleDrawer(): void {
-    this.isDrawerOpen = !this.isDrawerOpen;
+  ngOnInit() {
+    this.drawerService.drawerState.subscribe((isOpen) => {
+      this.drawerService.drawerState.subscribe((isOpen) => {
+        if (isOpen) {
+          this.drawer.open();
+        } else {
+          this.drawer.close();
+        }
+      });
+    });
   }
+
 }
