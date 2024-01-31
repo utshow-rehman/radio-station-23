@@ -1,0 +1,27 @@
+.sidebar-parent{
+    width: 13rem;  
+    background-color: #FFFFFF;
+    height: 92vh;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 40;
+    font-size: 35px;
+  }
+.info{
+    font-variation-settings:
+    'FILL' 0;
+}
+
+p{
+    font-weight: 600;
+    font-size: 1rem;
+}
+#notification{
+     color: gray;
+     font-weight: 700;
+}
