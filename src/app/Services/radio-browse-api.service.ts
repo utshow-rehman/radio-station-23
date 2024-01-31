@@ -7,14 +7,14 @@ import { Observable, map } from 'rxjs';
 })
 export class RadioBrowseApiService {
   private apiUrl:string = "";
-  private countryApiUrl: string = 'https://de1.api.radio-browser.info/json/countries';
-  private languageApiUrl:string = 'https://de1.api.radio-browser.info/json/languages?hidebroken=true&limit=100&reverse=true&order=stationcount'; 
+  private countryApiUrl: string = 'http://de1.api.radio-browser.info/json/countries';
+  private languageApiUrl:string = 'http://de1.api.radio-browser.info/json/languages?hidebroken=true&limit=100&reverse=true&order=stationcount'; 
+  private topRadioStationApi:string = 'https://de1.api.radio-browser.info/json/stations/topvote/100';
+
   constructor(private http: HttpClient) {}
 
 
-getCountries(id:number): Observable<any[]> {
-  console.log(id,"uts");
-  
+getCountries(id:number): Observable<any[]> { 
      if(id === 1){
        this.apiUrl = this.countryApiUrl;
    } 
@@ -24,11 +24,14 @@ getCountries(id:number): Observable<any[]> {
 else if(id === 3){
   this.apiUrl = this.countryApiUrl;
 } 
-  console.log(this.apiUrl);
   
   return this.http.get<any[]>(this.apiUrl);
 }
 
+getTopStation(): Observable<any[]> { 
+
+return this.http.get<any[]>(this.topRadioStationApi);
+}
 
 
 

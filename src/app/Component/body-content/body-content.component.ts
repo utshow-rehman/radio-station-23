@@ -11,11 +11,5 @@ export interface Tile {
   styleUrls: ['./body-content.component.css']
 })
 export class BodyContentComponent {
-  val:string = "ok";
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-   
-  ];
+
 }

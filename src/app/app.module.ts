@@ -18,13 +18,19 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BodyContentComponent } from './Component/body-content/body-content.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './Component/card/card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { AllCardComponent } from './Component/all-card/all-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
     DropdownComponent,
-    BodyContentComponent
+    BodyContentComponent,
+    CardComponent,
+    AllCardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatAutocompleteModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule,
+    MatChipsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

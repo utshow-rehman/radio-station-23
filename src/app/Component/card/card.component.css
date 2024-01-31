@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 20rem;
+    
+  }
+  
+  mat-card-title {
+    font-size: 1.4rem;
+  }
+ 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.custom-chip {
+    background-color: blue; /* Replace with your desired color */
+  }

@@ -36,7 +36,7 @@ p{
     flex-grow: 1;
 }
 
-  .sidebar-parent .ps-3 {
+  /* .sidebar-parent .ps-3 {
     padding-left: 1rem; 
   }
   
@@ -67,12 +67,13 @@ p{
   }
   .sidebar-parent .ms-2 {
     margin-left: 0.5rem; 
-  }
-  .danger{
+  } */
+  /* .danger{
      border: 1px solid red;
-  }
+  } */
   
   .selected {
     background-color: #F6F5F5;
   }
+  
   

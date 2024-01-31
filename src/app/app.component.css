@@ -3,10 +3,7 @@
     flex-direction: column;
     min-height: 100vh;
   }
-  .sidebar-and-content{
-     display: flex;
-     width: 100%;
-  }
+
 
  .danger{
      border: 1px solid red;
