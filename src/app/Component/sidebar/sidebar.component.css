@@ -1,7 +1,13 @@
 .sidebar-parent{
-    width: 13rem;  
-    background-color: #FFFFFF;
-    height: 92vh;
+    background-color: white;
+    width: 13rem;
+    display: flex;
+    flex-direction: column;
+ 
+    
+}
+.example-container{
+    height: 100vh;
 }
 
 .material-symbols-outlined {
@@ -18,10 +24,48 @@
 }
 
 p{
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
 }
 #notification{
      color: gray;
      font-weight: 700;
 }
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+  .sidebar-parent .ps-3 {
+    padding-left: 1rem; 
+  }
+  
+  .sidebar-parent .d-flex {
+    display: flex;
+   
+  }
+  .sidebar-parent .flex-column{
+      flex-direction: column;
+  }
+  .sidebar-parent .justify-content-start {
+    justify-content: flex-start; 
+  }
+  
+  .sidebar-parent .align-items-center {
+    align-items: center; 
+  }
+  
+  .sidebar-parent .pt-3 {
+    padding-top: 1rem; 
+  }
+  
+  .sidebar-parent .pb-3 {
+    padding-bottom: 1rem; 
+  }
+  
+  .sidebar-parent .ms-2 {
+    margin-left: 0.5rem; 
+  }
+  .danger{
+     border: 1px solid red;
+  }
+  

@@ -1,39 +1,53 @@
-<section class="sidebar-parent d-flex flex-column justify-content-between">
-    <div>
-    <div class="ps-3">
-    <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
-    <span class="material-symbols-outlined">
-        radio
-        </span>
-        <p class="m-0 ms-2">Browse</p>
-    </div>
-    <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
-        <span class="material-symbols-outlined">
-            public
-            </span>
-            <p class="m-0 ms-2">Radio map</p>
-        </div>
-        <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+        <section class="sidebar-parent danger">
+            <div class="danger">
+            <div class="ps-3">
+            <div class="d-flex justify-content-start align-items-center  pt-3 pb-3">
             <span class="material-symbols-outlined">
-                bookmarks
+                radio
                 </span>
-                <p class="m-0 ms-2">Favorites</p>
+                <p class="m-0 ms-2">Browse</p>
             </div>
-        </div>
-            <hr>
-            <div class="ps-3"><p id="notification">Notifications</p></div>
-        </div>
-       
-
-       
-        <div class="ps-3">
-            
-             <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
-                <span class="material-symbols-outlined info">
-                    info
+            <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
+                <span class="material-symbols-outlined">
+                    public
                     </span>
-                    <p class="m-0 ms-2">About</p>
-           </div>
+                    <p class="m-0 ms-2">Radio map</p>
+                </div>
+                <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
+                    <span class="material-symbols-outlined">
+                        bookmarks
+                        </span>
+                        <p class="m-0 ms-2">Favorites</p>
+                    </div>
+                </div>
+                    <hr>
+                    <div class="ps-3"><p id="notification">Notifications</p></div>
+                </div>
+               
+                <div class="flex-grow-1"></div>
+        
+               
+                <div class="ps-3 danger">
+                    
+                     <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
+                        <span class="material-symbols-outlined info">
+                            info
+                            </span>
+                            <p class="m-0 ms-2">About</p>
+                   </div>
+            </div>
+        
+        </section>
+     
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
     </div>
-
-</section>
+  
+  </mat-drawer-container>
+  
