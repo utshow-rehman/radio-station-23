@@ -1,28 +1,6 @@
-<!-- <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{placeHolder}}</mat-label>
-      <input matInput
-             aria-label="State"
-             [matAutocomplete]="auto"
-             [formControl]="stateCtrl">
-             <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let state of filteredData | async" [value]="state.country">
-                  <img alt="" class="example-option-img" [src]="state.flag" height="25">
-                  <span>{{state.country}}</span> | <small>Radio Stations: {{state.name}}</small>
-                </mat-option>
-              </mat-autocomplete>
-              
-    </mat-form-field>
-  
-    <br>
-
-  </form>
-   -->
-   <!-- dropdown.component.html -->
-
 <form class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ placeHolder }}</mat-label>
+      <mat-label>{{ placeHolderValue }}</mat-label>
       <input matInput
              aria-label="State"
              [matAutocomplete]="auto"
