@@ -12,7 +12,7 @@ export class SidebarComponent {
   constructor(private drawerService: DrawerService) { }
   selectedMenu:number = 1;
   ngOnInit() {
-    this.drawerService.drawerState.subscribe((isOpen) => {
+
       this.drawerService.drawerState.subscribe((isOpen) => {
         if (isOpen) {
           this.drawer.open();
@@ -20,7 +20,7 @@ export class SidebarComponent {
           this.drawer.close();
         }
       });
-    });
+ 
   }
 
   slectMenu(value:number){

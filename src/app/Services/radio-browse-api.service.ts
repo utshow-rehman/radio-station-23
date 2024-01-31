@@ -7,10 +7,13 @@ import { Observable, map } from 'rxjs';
 })
 export class RadioBrowseApiService {
   private apiUrl:string = "";
+  private filterApiUrl:string = "";
   private countryApiUrl: string = 'http://de1.api.radio-browser.info/json/countries';
   private languageApiUrl:string = 'http://de1.api.radio-browser.info/json/languages?hidebroken=true&limit=100&reverse=true&order=stationcount'; 
   private topRadioStationApi:string = 'https://de1.api.radio-browser.info/json/stations/topvote/100';
-
+  private filterByCounteryCode:string = 'https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/__?limit=100'; 
+  private filterByLanguage:string = 'https://de1.api.radio-browser.info/json/stations/bylanguage/__?limit=100'; 
+  private filterByStationName:string = 'https://de1.api.radio-browser.info/json/stations/search?name=';
   constructor(private http: HttpClient) {}
 
 
@@ -28,9 +31,22 @@ else if(id === 3){
   return this.http.get<any[]>(this.apiUrl);
 }
 
-getTopStation(): Observable<any[]> { 
-
-return this.http.get<any[]>(this.topRadioStationApi);
+getTopStation(filterValue:string,filterId:number): Observable<any[]> { 
+        if(filterId === 0){
+          this.filterApiUrl = this.topRadioStationApi;
+        }
+       else if(filterId === 1){
+          this.filterApiUrl = this.filterByCounteryCode.replace('__', filterValue);
+        }
+       else if(filterId === 2){
+          this.filterApiUrl = this.filterByLanguage.replace('__', filterValue);
+        }
+      else if(filterId === 3){
+            this.filterApiUrl = this.filterByStationName+""+filterValue;
+      }
+  
+    
+return this.http.get<any[]>(this.filterApiUrl);
 }
 
 

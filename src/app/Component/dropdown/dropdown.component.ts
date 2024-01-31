@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { FilterService } from 'src/app/Services/filter.service';
 import { RadioBrowseApiService } from 'src/app/Services/radio-browse-api.service';
 
 @Component({
@@ -17,8 +18,19 @@ export class DropdownComponent {
   stateCtrl = new FormControl('');
   filteredData: Observable<any[]> = of([]);
 
-  constructor(private radioBrowserService: RadioBrowseApiService) {}
+  constructor(private radioBrowserService: RadioBrowseApiService, private filterService:FilterService) {}
   ngOnInit() {
+    this.stateCtrl.valueChanges.subscribe(value => {
+      if (value === '' || value === null) {
+        this.filterService.setFilterValueAndId('', 0);
+      }
+      else{
+            if(this.placeHolder === 3){
+              this.filterService.setFilterValueAndId(value,3);
+            }
+      }
+      
+    });
        if(this.placeHolder === 1){
             this.placeHolderValue = "Find by country";
             this.filterByCountry(1);
@@ -28,7 +40,7 @@ export class DropdownComponent {
         this.filterByCountry(2);
       }
      else if(this.placeHolder === 3){
-       this.placeHolderValue = "Search by name";
+           this.placeHolderValue = "Search by name";
        }
 
   
@@ -54,8 +66,21 @@ export class DropdownComponent {
   }
 
   private filterCountries(value: string, countries: any[]): any[] {
-    const filterValue = value.toLowerCase();
-    return countries.filter(country => country.country.toLowerCase().includes(filterValue));
+    let stringValue = value ?? '';
+    const filterValue = stringValue.toLowerCase();
+    return countries.filter(country => (country.country?.toLowerCase() ?? "").includes(filterValue));
+
+  }
+  onOptionSelected(event:any) {
+      console.log("dsdsd");
+      
+      if(this.placeHolder === 1){
+         this.filterService.setFilterValueAndId(event.option.value,1);
+      }
+      else if(this.placeHolder === 2){
+        this.filterService.setFilterValueAndId(event.option.value,2);
+      }
+    
   }
 
 }

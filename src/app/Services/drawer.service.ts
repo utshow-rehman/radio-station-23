@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DrawerService {
   private isOpen = new BehaviorSubject<boolean>(true); // Default to open
 
-  // Observable for the drawer state
+
   public drawerState = this.isOpen.asObservable();
 
   constructor() { }
