@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
+import { RadioBrowseApiService } from 'src/app/Services/radio-browse-api.service';
 
 @Component({
   selector: 'app-dropdown',
@@ -6,15 +10,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent {
-  countries = [
-    { code: 'AR', name: 'Arkansas', flag: 'path_to_arkansas_flag.png', stations: '334,444' },
-    { code: 'BD', name: 'Bangladesh', flag: 'path_to_bangladesh_flag.png', stations: '56' },
-    // ... Add other countries here
-  ];
+  @Input() placeHolder: string = 'Placeholder';
 
-  selectedCountry = this.countries[0]; // Default selection
+  stateCtrl = new FormControl('');
+  filteredData: Observable<any[]> = of([]);
 
-  onSelectCountry(country:any): void {
-    this.selectedCountry = country;
+  constructor(private radioBrowserService: RadioBrowseApiService) {}
+  ngOnInit() {
+    this.radioBrowserService.getCountries().subscribe({
+      next: (data) => {
+          console.log(data);
+          
+        this.filteredData = this.stateCtrl.valueChanges.pipe(
+          startWith(''),
+          map(value => {
+            let stringValue = value ?? '';
+            return  stringValue;
+          }),
+          map(name => name ? this.filterCountries(name, data) : data.slice())
+        );
+        
+      },
+      error: (error) => {
+        console.error('Error fetching countries', error);
+      }
+    });
   }
+
+  private filterCountries(value: string, countries: any[]): any[] {
+   
+    
+    const filterValue = value.toLowerCase();
+    console.log(filterValue);
+    
+    return countries.filter(country => country.country.toLowerCase().includes(filterValue));
+  }
+
 }

@@ -3,7 +3,7 @@
     width: 13rem;
     display: flex;
     flex-direction: column;
- 
+    height: 90vh;
     
 }
 .example-container{
@@ -61,7 +61,9 @@ p{
   .sidebar-parent .pb-3 {
     padding-bottom: 1rem; 
   }
-  
+  .sidebar-parent .m-0 {
+   margin: 0;
+  }
   .sidebar-parent .ms-2 {
     margin-left: 0.5rem; 
   }
