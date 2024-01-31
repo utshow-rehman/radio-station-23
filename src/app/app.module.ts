@@ -22,6 +22,7 @@ import { CardComponent } from './Component/card/card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { AllCardComponent } from './Component/all-card/all-card.component';
+import { FooterComponent } from './Component/footer/footer.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { AllCardComponent } from './Component/all-card/all-card.component';
     DropdownComponent,
     BodyContentComponent,
     CardComponent,
-    AllCardComponent
+    AllCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
