@@ -2,20 +2,20 @@
     <mat-drawer #drawer class="example-sidenav" mode="side" opened>
         <section class="sidebar-parent ">
             <div class="">
-            <div class="ps-3">
-            <div class="d-flex justify-content-start align-items-center  pt-3 pb-3">
+            <div class="">
+            <div (click)="slectMenu(1)" [class.selected]="selectedMenu === 1" class="d-flex justify-content-start align-items-center ps-3 pt-3 pb-3">
             <span class="material-symbols-outlined">
                 radio
                 </span>
                 <p class="m-0 ms-2">Browse</p>
             </div>
-            <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
+            <div (click)="slectMenu(2)"  [class.selected]="selectedMenu === 2" class="d-flex justify-content-start align-items-center ps-3 pt-3 pb-3">
                 <span class="material-symbols-outlined">
                     public
                     </span>
                     <p class="m-0 ms-2">Radio map</p>
                 </div>
-                <div class="d-flex justify-content-start align-items-center pt-3 pb-3">
+                <div (click)="slectMenu(3)"  [class.selected]="selectedMenu === 3" class="d-flex justify-content-start align-items-center ps-3 pt-3 pb-3">
                     <span class="material-symbols-outlined">
                         bookmarks
                         </span>

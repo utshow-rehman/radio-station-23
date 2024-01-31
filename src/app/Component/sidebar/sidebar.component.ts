@@ -10,7 +10,7 @@ import { DrawerService } from 'src/app/Services/drawer.service';
 export class SidebarComponent {
   @ViewChild('drawer') drawer!: MatDrawer;
   constructor(private drawerService: DrawerService) { }
-
+  selectedMenu:number = 1;
   ngOnInit() {
     this.drawerService.drawerState.subscribe((isOpen) => {
       this.drawerService.drawerState.subscribe((isOpen) => {
@@ -21,6 +21,10 @@ export class SidebarComponent {
         }
       });
     });
+  }
+
+  slectMenu(value:number){
+      this.selectedMenu = value;
   }
 
 }
