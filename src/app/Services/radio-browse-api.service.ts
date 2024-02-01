@@ -17,7 +17,7 @@ export class RadioBrowseApiService {
   constructor(private http: HttpClient) {}
 
 
-getCountries(id:number): Observable<any[]> { 
+getAllData(id:number): Observable<any[]> { 
      if(id === 1){
        this.apiUrl = this.countryApiUrl;
    } 

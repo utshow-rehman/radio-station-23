@@ -17,12 +17,17 @@ export class DropdownComponent {
   
   stateCtrl = new FormControl('');
   filteredData: Observable<any[]> = of([]);
+  isLoading = true;
+
 
   private subscription = new Subscription();
 
   constructor(private radioBrowserService: RadioBrowseApiService, private filterService:FilterService) {}
   ngOnInit() {
+    if(this.placeHolder === 3){
    this.subscription.add(this.stateCtrl.valueChanges.subscribe(value => {
+   
+    
       if (value === '' || value === null) {
         this.filterService.setFilterValueAndId('', 0);
       }
@@ -33,13 +38,14 @@ export class DropdownComponent {
       }
       
     }));
+  }
        if(this.placeHolder === 1){
             this.placeHolderValue = "Find by country";
-            this.filterByCountry(1);
+            this.filterBySelectValue(1);
        }
       else if(this.placeHolder === 2){
         this.placeHolderValue = "Find by language";
-        this.filterByCountry(2);
+        this.filterBySelectValue(2);
       }
      else if(this.placeHolder === 3){
            this.placeHolderValue = "Search by name";
@@ -48,9 +54,11 @@ export class DropdownComponent {
   
   }
 
-  filterByCountry(id:number):void{
-    this.subscription.add(this.radioBrowserService.getCountries(id).subscribe({
+  filterBySelectValue(id:number):void{
+   
+    this.subscription.add(this.radioBrowserService.getAllData(id).subscribe({
       next: (data) => {
+           this.isLoading =false;
         this.filteredData = this.stateCtrl.valueChanges.pipe(
           startWith(''),
           map(value => {
@@ -59,6 +67,7 @@ export class DropdownComponent {
           }),
           map(name => name ? this.filterCountries(name, data) : data.slice())
         );
+       
         
       },
       error: (error) => {
@@ -67,10 +76,12 @@ export class DropdownComponent {
     }));
   }
 
-  private filterCountries(value: string, countries: any[]): any[] {
+  private filterCountries(value: string, data: any[]): any[] {
     let stringValue = value ?? '';
+  
+    
     const filterValue = stringValue.toLowerCase();
-    return countries.filter(country => (country.country?.toLowerCase() ?? "").includes(filterValue));
+    return data.filter(data => (data.country?.toLowerCase() ?? "").includes(filterValue));
 
   }
   onOptionSelected(event:any) {
