@@ -22,7 +22,8 @@ import { CardComponent } from './Component/card/card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { AllCardComponent } from './Component/all-card/all-card.component';
-import { FooterComponent } from './Component/footer/footer.component'; 
+import { FooterComponent } from './Component/footer/footer.component';
+import { RadioMapComponent } from './Component/radio-map/radio-map.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { FooterComponent } from './Component/footer/footer.component';
     BodyContentComponent,
     CardComponent,
     AllCardComponent,
-    FooterComponent
+    FooterComponent,
+    RadioMapComponent
   ],
   imports: [
     BrowserModule,

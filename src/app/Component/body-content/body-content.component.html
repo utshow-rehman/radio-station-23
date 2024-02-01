@@ -1,5 +1,5 @@
 <section class="">
-<div class="all-dropdown d-flex flex-wrap">
+<div *ngIf = "menuId === 1" class="all-dropdown d-flex flex-wrap">
     <div class="ms-2">
         <app-dropdown [placeHolder]=1></app-dropdown>
        </div>
@@ -11,8 +11,11 @@
     <app-dropdown  [placeHolder]=3></app-dropdown>
    </div>
 </div>
-<div>
+<div *ngIf = "menuId === 1">
        <app-all-card></app-all-card>
+</div>
+<div  *ngIf = "menuId === 2">
+      <app-radio-map></app-radio-map>
 </div>
 
 </section>

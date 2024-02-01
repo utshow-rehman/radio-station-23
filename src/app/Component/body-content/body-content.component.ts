@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuService } from 'src/app/Services/menu.service';
 export interface Tile {
   color: string;
   cols: number;
@@ -11,5 +12,14 @@ export interface Tile {
   styleUrls: ['./body-content.component.css']
 })
 export class BodyContentComponent {
+  menuId:number = 0;
+  constructor( private menuService:MenuService) { }
+  ngOnInit() {
+
+    this.menuService.menuState.subscribe((menuNumber) => {
+            this.menuId = menuNumber;
+    });
+
+}
 
 }
