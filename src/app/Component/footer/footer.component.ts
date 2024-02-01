@@ -33,6 +33,7 @@ export class FooterComponent {
     );
   }
   playAndPause(){
+    if(this.track.length>0){
        if(this.play){
            this.play = false;
            this.song.pause();
@@ -42,6 +43,7 @@ export class FooterComponent {
         this.song.play();
         this.play =true;
        }
+      }
   }
 
 }

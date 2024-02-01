@@ -1,4 +1,4 @@
-.example-form {
+/* .example-form {
     min-width: 250px;
     max-width: 300px;
     width: 100%;
@@ -21,4 +21,17 @@
   }
  .danger{
      border: 1px solid red;
- } 
+ }  */
+
+ .example-form {
+  min-width: 250px;
+  max-width: 300px;
+  width: 100%;
+  color: var(--card-color) !important;
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--body-bg) !important;
+}
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--card-color) !important;
+}

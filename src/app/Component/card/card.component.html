@@ -1,4 +1,4 @@
-<mat-card class="example-card py-3">
+<mat-card class="example-card p-2">
   <mat-card-header>
     <mat-card-title-group>
       <mat-card-title>{{ station.name }}</mat-card-title>
@@ -15,11 +15,11 @@
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
-    <div *ngFor="let tag of tagList | slice : 0 : 1">
+    <span class="ms-1 mt-1" *ngFor="let tag of tagList | slice : 0 : 2">
       <mat-chip>
-        <span>{{ tag }}</span>
+        <span>{{ tag.length > 10 ? (tag | slice : 0 : 10) + '..' : tag }}</span>
       </mat-chip>
-    </div>
+    </span>
     <div class="mt-2">
       <button
         style="background-color: #3f50b5"
