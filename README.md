@@ -10,7 +10,7 @@ Welcome to RadioStation 23, the ultimate online platform for exploring and enjoy
 - **Station Details**: View detailed information about each station, including the station name, current votes, and more.
 - **Location Discovery**: Discover the exact location of each radio station, adding an element of exploration to your listening experience.
 - **Favorites Feature**: Personalize your listening experience by adding stations to your list of favorites for quick access in the future.
-
+- **Dark mode**: also includes a user-friendly Dark Mode feature, enhancing the visual experience for users who prefer a darker color palette, especially in low-light environments. This feature is designed to reduce eye strain and provide a comfortable viewing experience during nighttime usage.
 ## Technologies Used
 
 - **Angular 15**: Leveraging the Angular framework for a responsive, user-friendly, and interactive front-end experience.
