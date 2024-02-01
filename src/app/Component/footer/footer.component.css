@@ -1,3 +1,6 @@
 .footer-conatainer {
     min-width: 78vw;
   }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
