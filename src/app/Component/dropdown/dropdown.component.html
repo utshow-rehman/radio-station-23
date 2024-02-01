@@ -6,12 +6,13 @@
              [matAutocomplete]="auto"
              [formControl]="stateCtrl">
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-        <mat-option *ngFor="let item of filteredData | async" [value]="(placeHolder === 1) ? item.iso_3166_1 : item.name">
+        <mat-option *ngFor="let item of filteredData | async" [value]="item.name">
           <span>{{ item.name }}</span> | <small>Radio Stations: {{ item.stationcount }}</small>
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
   </form>
+
 
 
 

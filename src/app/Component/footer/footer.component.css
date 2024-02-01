@@ -16,3 +16,8 @@
 .stationame{
    font-size: 2rem;
 }
+@media (max-width: 600px) {
+  .example-spacer {
+    flex: 0 ;
+  }
+}

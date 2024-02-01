@@ -17,7 +17,7 @@ export class DropdownComponent {
   
   stateCtrl = new FormControl('');
   filteredData: Observable<any[]> = of([]);
-  isLoading = true;
+  latestData:any[] = [];
 
 
   private subscription = new Subscription();
@@ -58,7 +58,8 @@ export class DropdownComponent {
    
     this.subscription.add(this.radioBrowserService.getAllData(id).subscribe({
       next: (data) => {
-           this.isLoading =false;
+           this.latestData = data;
+           if(this.placeHolder ===1 || this.placeHolder === 2){
         this.filteredData = this.stateCtrl.valueChanges.pipe(
           startWith(''),
           map(value => {
@@ -67,8 +68,8 @@ export class DropdownComponent {
           }),
           map(name => name ? this.filterCountries(name, data) : data.slice())
         );
+        }
        
-        
       },
       error: (error) => {
         console.error('Error fetching countries', error);
@@ -77,17 +78,18 @@ export class DropdownComponent {
   }
 
   private filterCountries(value: string, data: any[]): any[] {
+   
     let stringValue = value ?? '';
-  
-    
-    const filterValue = stringValue.toLowerCase();
-    return data.filter(data => (data.country?.toLowerCase() ?? "").includes(filterValue));
+    const filterValue = stringValue.toLowerCase();  
+    return data.filter(data => (data.name?.toLowerCase() ?? "").includes(filterValue));
 
   }
+
   onOptionSelected(event:any) {
-   
+       
       if(this.placeHolder === 1){
-         this.filterService.setFilterValueAndId(event.option.value,1);
+       const foundItem = this.latestData.find(item => item.name === event.option.value);
+         this.filterService.setFilterValueAndId(foundItem.iso_3166_1,1);
       }
       else if(this.placeHolder === 2){
         this.filterService.setFilterValueAndId(event.option.value,2);

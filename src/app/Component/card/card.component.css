@@ -21,3 +21,9 @@ mat-card-title {
 .custom-chip {
   background-color: blue;
 }
+@media (max-width: 600px) {
+  .example-card {
+    width: 200px;
+    height: 200px;
+  }
+}
