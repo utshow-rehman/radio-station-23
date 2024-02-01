@@ -12,18 +12,16 @@ export class SidebarComponent {
   @ViewChild('drawer') drawer!: MatDrawer;
   constructor(private drawerService: DrawerService, private menuService:MenuService) { }
   selectedMenu:number = 1;
-  ngOnInit() {
 
-      this.drawerService.drawerState.subscribe((isOpen) => {
-        if (isOpen) {
-          this.drawer.open();
-        } else {
-          this.drawer.close();
-        }
-      });
- 
+  ngAfterViewInit() {
+    this.drawerService.drawerState.subscribe((isOpen) => {
+      if (isOpen) {
+        this.drawer.open();
+      } else {
+        this.drawer.close();
+      }
+    });
   }
-
   slectMenu(value:number){
       this.selectedMenu = value;
       this.menuService.setMenuNumber(value);
