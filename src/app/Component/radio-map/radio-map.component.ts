@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as L from 'leaflet';
+import { Subscription } from 'rxjs';
 import { MapApiService } from 'src/app/Services/map-api.service';
 
 
@@ -11,6 +12,7 @@ import { MapApiService } from 'src/app/Services/map-api.service';
 export class RadioMapComponent {
   private map:any;
   stations:any;
+  private subscription = new Subscription();
   constructor(private mapApiService:MapApiService){}
   ngOnInit() {
 
@@ -36,7 +38,7 @@ export class RadioMapComponent {
   }
   
   private loadMapData(){
-      this.mapApiService.getAllLocationData().subscribe({
+    this.subscription.add(this.mapApiService.getAllLocationData().subscribe({
         next: (data) => {
              this.stations = data;   
              this.stations.forEach((station:any) => {
@@ -47,8 +49,13 @@ export class RadioMapComponent {
         error: (error) => {
           console.error('Error fetching map data', error);
         }
-      });
+      })
+    );
+
   }
-  
+  ngOnDestroy() {
+   
+    this.subscription.unsubscribe();
+  }
   
 }

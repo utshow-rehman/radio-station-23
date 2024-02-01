@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { FilterService } from 'src/app/Services/filter.service';
 import { RadioBrowseApiService } from 'src/app/Services/radio-browse-api.service';
@@ -14,13 +14,15 @@ export class DropdownComponent {
   @Input() placeHolder: number = 0;
   
   placeHolderValue:string = "PlaceHolder";
-
+  
   stateCtrl = new FormControl('');
   filteredData: Observable<any[]> = of([]);
 
+  private subscription = new Subscription();
+
   constructor(private radioBrowserService: RadioBrowseApiService, private filterService:FilterService) {}
   ngOnInit() {
-    this.stateCtrl.valueChanges.subscribe(value => {
+   this.subscription.add(this.stateCtrl.valueChanges.subscribe(value => {
       if (value === '' || value === null) {
         this.filterService.setFilterValueAndId('', 0);
       }
@@ -30,7 +32,7 @@ export class DropdownComponent {
             }
       }
       
-    });
+    }));
        if(this.placeHolder === 1){
             this.placeHolderValue = "Find by country";
             this.filterByCountry(1);
@@ -47,7 +49,7 @@ export class DropdownComponent {
   }
 
   filterByCountry(id:number):void{
-    this.radioBrowserService.getCountries(id).subscribe({
+    this.subscription.add(this.radioBrowserService.getCountries(id).subscribe({
       next: (data) => {
         this.filteredData = this.stateCtrl.valueChanges.pipe(
           startWith(''),
@@ -62,7 +64,7 @@ export class DropdownComponent {
       error: (error) => {
         console.error('Error fetching countries', error);
       }
-    });
+    }));
   }
 
   private filterCountries(value: string, countries: any[]): any[] {
@@ -81,6 +83,10 @@ export class DropdownComponent {
         this.filterService.setFilterValueAndId(event.option.value,2);
       }
     
+  }
+  ngOnDestroy() {
+   
+    this.subscription.unsubscribe();
   }
 
 }
