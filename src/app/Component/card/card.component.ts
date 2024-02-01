@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PlayTrackService } from 'src/app/Services/play-track.service';
 
 @Component({
   selector: 'app-card',
@@ -10,7 +11,7 @@ export class CardComponent {
   @Output() favStation: EventEmitter<any> = new EventEmitter<any>();
   tagList: string[] = [];
   isFavorite: boolean = false; 
-
+  constructor(private playTrackService:PlayTrackService){}
   ngOnInit() {
     if (this.station && this.station.tags) {
       this.tagList = this.station.tags.split(',');
@@ -21,9 +22,11 @@ export class CardComponent {
   }
 
   addFavorite(station: any) {
-    console.log(station, 'station');
     this.favStation.emit(station);
     this.isFavorite = !this.isFavorite;
+  }
+  playTrack(station:any){
+       this.playTrackService.setTrack(station.url,station.name);
   }
 
   checkIsFavorite(station: any): boolean {

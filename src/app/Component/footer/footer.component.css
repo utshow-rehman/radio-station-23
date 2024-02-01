@@ -1,6 +1,18 @@
 .footer-conatainer {
-    min-width: 82vw;
+    min-width: 85vw;
   }
   .example-spacer {
     flex: 1 1 auto;
   }
+  .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  font-size: 48px;
+  
+}
+.stationame{
+   font-size: 2rem;
+}

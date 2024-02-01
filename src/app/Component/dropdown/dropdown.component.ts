@@ -74,8 +74,7 @@ export class DropdownComponent {
 
   }
   onOptionSelected(event:any) {
-      console.log("dsdsd");
-      
+   
       if(this.placeHolder === 1){
          this.filterService.setFilterValueAndId(event.option.value,1);
       }
