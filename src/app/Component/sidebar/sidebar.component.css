@@ -1,5 +1,5 @@
 .sidebar-parent {
-  background-color: white;
+  background-color: var(--card-bg);
   width: 13rem;
   display: flex;
   flex-direction: column;
@@ -33,45 +33,15 @@ p{
 .flex-grow-1 {
     flex-grow: 1;
 }
+#notification {
+  color: var(--color-gray);
+  font-weight: 700;
+}
+.mat-drawer {
+  color: var(--card-color);
+}
 
-  /* .sidebar-parent .ps-3 {
-    padding-left: 1rem; 
-  }
-  
-  .sidebar-parent .d-flex {
-    display: flex;
-   
-  }
-  .sidebar-parent .flex-column{
-      flex-direction: column;
-  }
-  .sidebar-parent .justify-content-start {
-    justify-content: flex-start; 
-  }
-  
-  .sidebar-parent .align-items-center {
-    align-items: center; 
-  }
-  
-  .sidebar-parent .pt-3 {
-    padding-top: 1rem; 
-  }
-  
-  .sidebar-parent .pb-3 {
-    padding-bottom: 1rem; 
-  }
-  .sidebar-parent .m-0 {
-   margin: 0;
-  }
-  .sidebar-parent .ms-2 {
-    margin-left: 0.5rem; 
-  } */
-  /* .danger{
-     border: 1px solid red;
-  } */
-  
   .selected {
-    background-color: #F6F5F5;
+    background-color: var(--bg-body);
   }
-  
   

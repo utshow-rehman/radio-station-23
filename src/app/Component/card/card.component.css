@@ -1,11 +1,15 @@
 .example-card {
   max-width: 20rem;
+  background: var(--card-bg);
+  color: var(--card-color);
 }
 
 mat-card-title {
   font-size: 1.4rem;
 }
-
+.mat-mdc-card-subtitle {
+  color: var(--card-color);
+}
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
@@ -14,5 +18,5 @@ mat-card-title {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 .custom-chip {
-  background-color: blue; 
+  background-color: blue;
 }

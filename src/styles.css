@@ -1,8 +1,13 @@
 @import "~leaflet/dist/leaflet.css";
-
+:root {
+  --bg-body: #f1f1f1;
+  --card-bg: #fff;
+  --card-color: #212529;
+  --color-gray: gray;
+}
 html body {
-    background-color: #F1F1F1;
-  }
+  background-color: var(--bg-body);
+}
    
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
