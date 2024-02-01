@@ -1,6 +1,10 @@
 <section class="footer-conatainer">
   <mat-toolbar color="primary">
-    <span class="stationame">{{stationName}}</span>
+    <span class="stationame">{{
+      stationName.length > 15
+        ? (stationName | slice : 0 : 15) + "..."
+        : stationName
+    }}</span>
       
     
     <span class="example-spacer"></span>
