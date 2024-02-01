@@ -1,13 +1,13 @@
 #page-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow-x: hidden;
-  }
-  
-  .body-container {
-    height: 80vh;
-    overflow: hidden;
-    overflow-y: auto;
-    scrollbar-width: thin;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.body-container {
+  height: 84vh;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}

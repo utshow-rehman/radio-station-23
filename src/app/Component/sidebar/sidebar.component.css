@@ -1,16 +1,14 @@
-.sidebar-parent{
-    background-color: white;
-    width: 13rem;
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
-    padding-top: 5px;
-    
+.sidebar-parent {
+  background-color: white;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  height: 91vh;
+  padding-top: 5px;
 }
-.example-container{
-    height: 90vh;
+.example-container {
+  height: 93vh;
 }
-
 .material-symbols-outlined {
     font-variation-settings:
     'FILL' 1,

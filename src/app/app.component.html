@@ -1,18 +1,14 @@
-<div class="row text-center  m-0 p-0" id="page-container">
-    <div class="col-12  m-0 p-0">
-      <div class="row  m-0 p-0">
-        <div class="col-12 m-0 p-0"><app-navbar></app-navbar></div>
+<Section class="" id="page-container">
+  <div class="row"><app-navbar></app-navbar></div>
+  <div class="d-flex">
+    <div>
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="row m-0 p-0">
+      <div class="body-container col-12">
+        <app-body-content></app-body-content>
       </div>
-      <div class="row ">
-        <div class="col-2 m-0 p-0"><app-sidebar></app-sidebar></div>
-        <div class="col-10 m-0 p-0 ">
-          <div class="row m-0 p-0">
-            <div class="body-container col-12 ">
-              <app-body-content></app-body-content>
-            </div>
-            <div class="col-12 m-0 p-0 "><app-footer></app-footer></div>
-          </div>
-        </div>
-      </div>
+      <div class="col-12 m-0 p-0"><app-footer></app-footer></div>
     </div>
   </div>
+</Section>
